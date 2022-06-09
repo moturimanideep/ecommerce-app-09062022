@@ -1,0 +1,202 @@
+Framework: A framework in programming is a tool that provides ready-made components or solutions that are customized in order to speed up development.
+
+-> Angular CLI is a command-line interface tool that you use to initialize, develop, scaffold, and maintain Angular applications directly from a command line interface.
+-> Cli includes a server, which helps you running the application locally.
+
+For installing angular command line interface to machine:
+npm install -g @angular/cli
+
+ng --version (Used to get details of angular)
+
+ng new projectName (It used to get scaffolded application)
+
+package.json:
+
+-> Scripts: Used to custom the command and use it with the help of npm.
+
+    npm run 'command-name'
+
+-> In package.json dependencies and devDependencies are used to keep track of the packages which are required for our application.
+dependencies: This are the packages which are used both during development and production environment.
+devDependencies: This packages are used only in development environment.
+
+Note: all the angular predefined packages will follow below notation.
+
+    @angular/* (animations | common | complier | core | forms | )
+
+-> package-lock.json: It has all the dependent packages of an package mentioned in package.json file.
+
+-> README.md: It's a text used to describe about the project.
+
+-> tsconfig.app.json & tsconfig.json: Used to configurating the required configuration for typescript complier.
+
+-> tsconfig.spec.json: Used for configurating unit test cases complier options.
+
+-> karma.conf.js: Configuration of Karma Js test runner will be available.
+
+-> .gitignore: used to mention the ignore files from remote git.
+
+-> .browserslistrc: # This file is used by the build system to adjust CSS and JS output to support the specified browsers below.
+
+-> dist: It is the folder contains complied javascript source code after running ng build command.
+
+-> node_modules: It consists of all the packages required for this project which are mentioned package.json. (npm install)
+
+-> src: Where actual source folder of the angular application has.
+
+-> angular.json: It is main file for getting started with angular complier compilation process, All the configuration of project exist here.
+
+import { ClassName } from './tsFile'
+
+
+file1.ts
+
+export class A {
+
+}
+
+file2.ts 
+
+import { A } from './file1.ts';
+
+class B extends A {
+
+}
+
+-> Platform-browser-dynamic: This package is used for bootstraping the default module.
+
+07/06/2022:
+-----------
+
+-> Each module in angular application has components, services, directives, routing & pipes. 
+
+Components: Components are the most basic UI building block of an Angular app. An Angular app contains a tree of Angular components.
+
+Services: Services are used to write reusable logic to share across the components.
+
+Directives: Directives are used to generate custom attributes.
+
+Routing: With the help of routing we can navigate from one page to another page without reloading the either application.
+
+Pipes: Used to filter the data.
+
+*.ts (Service | directive | Component | Pipe | Routing | Module)
+
+import statements
+
+Decorator: It is used to pass information from our file to angular cli.
+
+function a () {
+
+}
+
+a();
+
+export
+
+Module: Module in Angular refers to a place where you can group the components, directives, pipes, and services, which are related to the application.
+
+@NgModule: It is a decorator which is used to give inputs (components, directives, pipes, modules, services) to angular cli.
+
+
+@NgModule({
+    declarations: [Comp1, Comp2, Pipe1],
+    imports: [Module1, Module2],
+    providers: [Service1, Service2]
+})
+declarations: Used to include components & pipes.
+imports: Used to include third party modules which required for this module.
+providers: Used to include services of this module.
+bootstrap: For loading default component of an module.
+
+Component: Used to build the UI blocks. Each component consists of html, css & ts files.
+
+@Component({
+    selector: ''
+    templateUrl: ''
+    styleUrls: []
+
+})
+
+selector: Tag name which we want to generate, to use it in html files.
+templateUrl: Used to include html file of this component.
+styleUrls: Used to include styling files of this component.
+
+08.06.2022:
+-----------
+> Creating component using angular cli
+
+  ng generate component componentName
+
+Using bootstrap in angular app.
+
+Step1:
+
+npm install bootstrap
+
+Step2:
+Path bootstrap css and js path in angular.json file styles and scripts array.
+Line No 29:
+"styles": [
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "src/styles.css"
+],
+"scripts": [
+  "node_modules/bootstrap/dist/js/bootstrap.min.js"
+]
+
+------------------------------------------------------------
+
+Git: 
+----
+
+Setting config:
+
+git config --local user.email "admin@gmail.com"
+
+git config --local user.name "admin"
+
+Used to attach local repo with remote repo: (It is first time job)
+git remote add origin https://github.com/moturimanideep/ecommerce-app.git
+
+-----------------------------------------------------------
+
+Upstream: Pushing the source code from local repository to remote repository. (Every time jobs)
+
+Moves the source code from working directory to staging area:
+git add fileName1 fileName2 fileName3 | . (. indicates adding all the files)
+
+Moves the source code from staging area to local repository:
+git commit -m "message" 
+
+Moves the source code from local repository to remote repository:
+git push -u origin Main
+
+-------------------------------------------------------
+
+Downstream: 
+
+It pulls the source code from remote repo to local repo:
+git pull
+
+
+---------------------------------------------------------
+
+For getting the existing repo source code to local machine:
+
+git clone https://github.com/moturimanideep/ecommerce-app-09062022.git
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
