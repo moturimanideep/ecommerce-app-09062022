@@ -8,21 +8,21 @@
             aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-        <div class="carousel-item active">
+        <div class="carousel-item" [ngClass]="{'active': i === 0}" *ngFor="let elem of banners; let i = index" (click)="getBannerInfo(elem)">
             <img height="550px"
-                src="https://img.freepik.com/free-vector/e-commerce-icon-robotic-hand-internet-shopping-online-purchase-add-cart_127544-586.jpg?w=2000"
-                class="d-block w-100" alt="...">
+                [src]="elem.imgSrc"
+                class="d-block w-100" [alt]="elem.alternateText">
+        </div>
+        <!-- <div class="carousel-item">
+            <img height="550px"
+                [src]="banners[1].imgSrc"
+                class="d-block w-100" [alt]="banners[1].alternateText">
         </div>
         <div class="carousel-item">
             <img height="550px"
-                src="https://img.freepik.com/free-photo/omni-channel-technology-online-retail-business_31965-3010.jpg?w=2000"
-                class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img height="550px"
-                src="https://img.freepik.com/free-vector/e-commerce-icon-robotic-hand-internet-shopping-online-purchase-add-cart_127544-586.jpg?w=2000"
-                class="d-block w-100" alt="...">
-        </div>
+                [src]="banners[2].imgSrc"
+                class="d-block w-100" [alt]="banners[2].alternateText">
+        </div> -->
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
         data-bs-slide="prev">

@@ -187,16 +187,58 @@ For getting the existing repo source code to local machine:
 git clone https://github.com/moturimanideep/ecommerce-app-09062022.git
 
 
+Property Binding: Used to communicate from component to template in the form of reference of value.
+
+  Syntax:
+
+  [attributeName]="value";
+
+String Interpolation
+
+  {{value}}
 
 
+Event Binding: For communicating from template layer to component layer.
+
+Syntax:
+
+<form onclick="functionName()"></form>
 
 
+<form (click)="methodName()"></form>
 
 
+Directives: Directives are classes that add additional behavior to elements in your Angular applications. Use Angular's built-in directives to manage forms, lists, styles, and what users see.
+
+1. Structural Directives: It adds or removes the elements from the dom structure.
+   -> *ngIf else
+   -> *ngFor
+   -> [ngSwitch]
 
 
+   *ngFor:
 
+    Syntax:
 
+        <element *ngFor="let elem of arrayName; let i = index"></element>
 
+  *ngIf:
 
+      <element *ngIf="condition; else dummyVariable"></element>
+
+      <ng-template #dummyVariable></ng-template>
+
+  [ngSwitch]
+
+    Syntax:
+
+    
+
+2. Attribute Directives: It adds or removes styling of an element in the dom structure.
+  -> [ngClass]
+  -> [ngStyle]
+
+Note: Directives are custom attributes in html.
+
+<a href=""></a>
 

@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row my-4" *ngFor="let product of products">
+        <div class="col-sm-3 text-center">
+            <img [src]="product.imgSrc" height="200px" />
+        </div>
+        <div class="col-sm-6">
+            <h4>{{product.name}}</h4>
+            <h6><span class="badge bg-primary">{{product.avgRating}}</span>
+            <span>  {{product.ratings}} Ratings & </span><span>{{product.reviews}} Reviews</span></h6>
+            <ul>
+                <li *ngFor="let specify of product.specifications">{{specify}}</li>
+            </ul>
+        </div>
+        <div class="col-sm-3 text-center">
+            <h4>{{product.price}}</h4>
+            <button class="btn btn-success" *ngIf="product.inStock === true; else noStock">Add to Cart</button>
+            <ng-template #noStock>
+                <h6 class="text-danger">Out of Stock</h6>
+            </ng-template>
+        </div>
+    </div>
+</div>
