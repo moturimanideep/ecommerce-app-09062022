@@ -72,5 +72,16 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  getColor(name: string) {
+    if (name.includes('REDMI')) {
+      return 'red';
+    } else if (name.includes('POCO')) {
+      return 'violet';
+    } else if (name.includes('realme')) {
+      return 'green';
+    } else {
+      return 'blue';
+    }
 
+  }
 }

@@ -232,6 +232,24 @@ Directives: Directives are classes that add additional behavior to elements in y
 
     Syntax:
 
+      [ngSwitch]
+      <element [ngSwitch]="parameter">
+        <celement *ngSwitchCase="value"></celement>
+        <celement *ngSwitchCase="value"></celement>
+        <celement *ngSwitchCase="value"></celement>
+        <celement *ngSwitchCase="value"></celement>
+      </element>
+
+            v/s
+
+      *ngIf
+      <element>
+        <celement *ngIf="parameter === value"></celement>
+        <celement *ngIf="parameter === value"></celement>
+        <celement *ngIf="parameter === value"></celement>
+        <celement *ngIf="parameter === value"></celement>
+      </element>
+
     
 
 2. Attribute Directives: It adds or removes styling of an element in the dom structure.
@@ -242,3 +260,44 @@ Note: Directives are custom attributes in html.
 
 <a href=""></a>
 
+[ngClass]: Used to add or remove classes dynamically for a particular element.
+
+  Syntax:
+  Angular ngClass:
+  <element [ngClass]="{'className': value, 'className': value, 'className': value}"></element>
+
+
+  HTML:
+  <element class="className1 className2 className3"></element>
+
+
+< 10000 - red (text-danger)
+> 10000 & < 15000 - gray (text-secondary)
+> 15000 - blue (text-primary)
+
+
+[ngStyle]: Used to add or remove stylings dynamically for an element.
+
+  Syntax:
+
+    <element [ngStyle]="{'backgroundColor': value, color: value}"></element>
+
+Routing: Used to navigate from one page to another page without reloading whole application.
+
+SPA: Single Page Application - Routing
+
+-> When we want to navigate from one page to another page, internally it replaces existing component with new component in index.html file.
+
+-> For every module, we will define a seperate routing configuraton. (Eg. app-routing.module.ts)
+
+RouterModule: Used to give routing configuration of a module to angular cli.
+Routes: Used to define routes for that module.
+
+RouterModule.forRoot -> used to give root module as an input to angular cli.
+RouterModule.forChild -> Used to give child module as an input to root module.
+
+Routes: 
+
+  const routes: Routes = [
+    {path: '', component: ComponentClassName} -> One route of a module
+  ];

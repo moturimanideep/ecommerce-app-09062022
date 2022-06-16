@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="text-center">Registered Users</h4>
+            <table class="table table-bordered my-4">
+                <thead>
+                    <tr>
+                        <th scope="col">S No</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">City</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let user of users" [ngSwitch]="user.city">
+                        <tr *ngSwitchCase="'Bangalore'" class="text-success">
+                            <th scope="row">{{user.id}}</th>
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.city}}</td>
+                        </tr>
+                        <tr *ngSwitchCase="'Hyderabad'" class="text-primary">
+                            <th scope="row">{{user.id}}</th>
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.city}}</td>
+                        </tr>
+                        <tr *ngSwitchCase="'Kolkata'" class="text-info">
+                            <th scope="row">{{user.id}}</th>
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.city}}</td>
+                        </tr>
+                        <tr *ngSwitchCase="'Chennai'" class="text-danger">
+                            <th scope="row">{{user.id}}</th>
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.city}}</td>
+                        </tr>
+                        <tr *ngSwitchDefault class="text-secondary">
+                            <th scope="row">{{user.id}}</th>
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.city}}</td>
+                        </tr>
+                        <!-- <tr *ngIf="user.city === 'Bangalore'" class="text-success">
+                            <th scope="row">{{user.id}}</th>
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.city}}</td>
+                        </tr>
+                        <tr *ngIf="user.city === 'Hyderabad'" class="text-primary">
+                            <th scope="row">{{user.id}}</th>
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.city}}</td>
+                        </tr>
+                        <tr *ngIf="user.city === 'Kolkata'" class="text-info">
+                            <th scope="row">{{user.id}}</th>
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.city}}</td>
+                        </tr>
+                        <tr *ngIf="user.city === 'Chennai'" class="text-danger">
+                            <th scope="row">{{user.id}}</th>
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.city}}</td>
+                        </tr> -->
+                    </ng-container>
+
+                </tbody>
+            </table>
+
+            <p>Light blue - Kolkata  Red - Chennai  Blue - Hyderabad  Green - Bangalore</p>
+        </div>
+    </div>
+</div>
