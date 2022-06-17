@@ -301,3 +301,71 @@ Routes:
   const routes: Routes = [
     {path: '', component: ComponentClassName} -> One route of a module
   ];
+
+router-outlet: It is used to specify the position of the component to be loaded when we access a route from a module.
+
+For navigate from one route to another route:
+
+Using html:
+Syntax:
+
+    <a routerLink="/routeName"></a>
+
+Using Component: 
+
+    <element (click)="methodName()"></element>
+
+    import { Router } from '@angular/router';
+
+    constructor(private router: Router) {}
+
+    methodName() {
+      this.router.navigate(['/routeName']);
+    }
+
+Dependency Injection: Used to inject required dependency in a component. (Internally angular will create instance a dependency if ).
+
+class className {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+let obj = new className('Digital');
+
+let obj2 = new className('Lync');
+
+obj2.name
+
+if (router) {
+  return router;
+} else {
+  router = new Router;
+  return router;
+}
+
+Route Params: It is used to pass information along with the route when we navigate from one page to another page.
+
+routing.file
+
+{path: 'routeName/:parameterName', component: Component}
+
+source component 
+
+this.router.navigate(['/routeName/paramValue']);
+
+destination component:
+
+import { ActivatedRoute } from '@angular/router';
+
+constructor(private activatedRoute: ActivatedRoute) {}
+
+ngOnInit() {
+  this.activatedRoute.paramsMap.subscribe(paramMap => {
+
+  });
+}
+
+
+

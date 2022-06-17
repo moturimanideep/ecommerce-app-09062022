@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -68,7 +69,9 @@ export class ProductsComponent implements OnInit {
       inStock: false
     },
   ]
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -82,6 +85,11 @@ export class ProductsComponent implements OnInit {
     } else {
       return 'blue';
     }
-
+  }
+  addToCart() {
+    this.router.navigate(['/cart']);
+  }
+  navToProductDetails(name: string) {
+    this.router.navigate([`/product-details/${name}`])
   }
 }

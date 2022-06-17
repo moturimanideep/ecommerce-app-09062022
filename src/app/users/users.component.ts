@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -50,7 +51,7 @@ export class UsersComponent implements OnInit {
       city: 'Delhi'
     }
   ];
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
