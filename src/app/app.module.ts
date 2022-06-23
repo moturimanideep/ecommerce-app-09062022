@@ -10,6 +10,11 @@ import { ProductsComponent } from './products/products.component';
 import { UsersComponent } from './users/users.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { SpecificationsComponent } from './product-details/specifications/specifications.component';
+import { RatingReviewsComponent } from './product-details/rating-reviews/rating-reviews.component';
+import { QuestionsAnswersComponent } from './product-details/questions-answers/questions-answers.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,12 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     ProductsComponent,
     UsersComponent,
     CartComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    SpecificationsComponent,
+    RatingReviewsComponent,
+    QuestionsAnswersComponent,
+    EmployeesComponent,
+    EmployeeDetailsComponent
   ],
   imports: [
     BrowserModule,

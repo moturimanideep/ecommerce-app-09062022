@@ -346,7 +346,7 @@ if (router) {
 }
 
 Route Params: It is used to pass information along with the route when we navigate from one page to another page.
-
+-------------
 routing.file
 
 {path: 'routeName/:parameterName', component: Component}
@@ -368,4 +368,84 @@ ngOnInit() {
 }
 
 
+Observable: Observables provide support for passing messages between parts of your application. They are used frequently in Angular and are a technique for event handling, asynchronous programming, and handling multiple values.
 
+import { Observable } from 'rxjs';
+
+const obseravable = new Observable(subscriber => {
+  subscriber.next(1);
+  subscriber.next(2);
+  subscriber.complete();
+  subscriber.next(6);
+});
+console.log('Before Subscriber');
+obseravable.subscribe({
+  next(x) { console.log(x)},
+  complete() {console.log('In complete method')}
+});
+console.log('After subscriber');
+
+Query Params: When we want to pass multiple parameters in url, we can take the help of this.
+
+Source File:
+
+this.router.navigate(['/'], {queryParams: {param1: value1, param2: value2}});
+
+destination file:
+
+import { ActivatedRoute } from '@angular/router';
+
+constructor(private router: ActivatedRoute) {}
+
+this.router.queryParamMap.subscribe(data => {
+  console.log(data);
+});
+
+Component to Component Communication:
+
+Parent-Child Communication:
+
+-> For transmitting the data from parent to child component we can take the help of @Input() decorator. 
+   It takes the help of property binding concept for transmission.
+
+   Syntax:
+
+   <child-component [propertyName]="value"></child-component>
+
+
+   In Child Component:
+
+   @Input() dataMember1: dataType;
+
+Child-Parent Communication:
+
+-> For transmitting the data from child to parent component we can take the help of @Output() decorator. 
+   It takes the help of event binding concept for transmission.
+
+   Syntax:
+   
+   <child-component (eventName)="methodName($event)"></child-component>
+
+   methodName(event) {
+
+   }
+
+   eventName - created custom event in child component.
+
+   In Child Component:
+
+   @Output() dataMember = new EventEmitter();
+
+
+   this.dataMember.emit(value);
+
+
+Services:
+
+-> For reusing the logic in more than one component.
+-> For sharing the data between two components.
+-> Data stored in service will be able until we refresh the web page.
+
+Creating service:
+
+  ng generate service service-name

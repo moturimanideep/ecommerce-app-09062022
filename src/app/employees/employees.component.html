@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row py-2">
+        <div class="col-12">
+            <h4>Selected Employee</h4>
+            <p>Name: <span class="text-primary">{{selectedEmployee.name}}</span></p>
+            <p>Designation: <span class="text-danger">{{selectedEmployee.designation}}</span></p>
+            <p>Id: <span class="text-primary">{{selectedEmployee.id}}</span></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h4>Employees</h4>
+        </div>
+    </div>
+    <app-employee-details *ngFor="let emp of employees"
+        [employeeName]="emp.name" [employeeDesignation]="emp.designation"
+        [employeeId]="emp.id" (selectEmployee)="getEmployee($event)"></app-employee-details>
+</div>

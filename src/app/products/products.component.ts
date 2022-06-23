@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -55,6 +56,14 @@ export class ProductsComponent implements OnInit {
       ratings: 41979,
       reviews: 2873,
       inStock: true,
+      ratingsAndReviews: [
+        {}
+      ],
+      questions: [
+        {
+
+        }
+      ]
     },
     {
       imgSrc: 'https://rukminim1.flixcart.com/image/312/312/kqqykcw0/mobile/p/y/u/galaxy-f22-sm-e225fzkhins-samsung-original-imag4z99fagskjxd.jpeg?q=70',
@@ -74,6 +83,7 @@ export class ProductsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    
   }
   getColor(name: string) {
     if (name.includes('REDMI')) {
@@ -90,6 +100,6 @@ export class ProductsComponent implements OnInit {
     this.router.navigate(['/cart']);
   }
   navToProductDetails(name: string) {
-    this.router.navigate([`/product-details/${name}`])
+    this.router.navigate([`/product-details/${name}`], {queryParams: {id: 1, previousPage: 'products'}})
   }
 }
