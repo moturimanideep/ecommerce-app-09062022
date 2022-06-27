@@ -9,20 +9,25 @@ import { SpecificationsComponent } from './product-details/specifications/specif
 import { RatingReviewsComponent } from './product-details/rating-reviews/rating-reviews.component';
 import { QuestionsAnswersComponent } from './product-details/questions-answers/questions-answers.component';
 import { EmployeesComponent } from './employees/employees.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'products', component: ProductsComponent},
-  {path: 'users', component: UsersComponent},
-  {path: 'cart', component: CartComponent},
-  {path: 'product-details/:name', component: ProductDetailsComponent, children: 
-    [
-      {path: '', component: SpecificationsComponent},
-      {path: 'specifications', component: SpecificationsComponent},
-      {path: 'rating-reviews', component: RatingReviewsComponent},
-      {path: 'questions-answers', component: QuestionsAnswersComponent},
-    ]
+  { path: '', component: HomeComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'users', component: UsersComponent },
+  { path: 'cart', component: CartComponent },
+  {
+    path: 'product-details/:name', component: ProductDetailsComponent, children:
+      [
+        { path: '', component: SpecificationsComponent },
+        { path: 'specifications', component: SpecificationsComponent },
+        { path: 'rating-reviews', component: RatingReviewsComponent },
+        { path: 'questions-answers', component: QuestionsAnswersComponent },
+      ]
   },
-  {path: 'employees', component: EmployeesComponent}
+  { path: 'employees', component: EmployeesComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({

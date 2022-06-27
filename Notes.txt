@@ -449,3 +449,27 @@ Services:
 Creating service:
 
   ng generate service service-name
+
+Forms:
+
+→ How to keep track of the global form state
+→ Know which parts of the form are valid and which are still invalid
+→ Properly displaying error messages to the user so that the user knows what to do to make the form valid
+
+1. Template driven forms
+2. Reactive forms
+
+Template drive forms: Template-driven forms use two-way data binding to update the data model in the component as changes are made in the template and vice versa.
+
+ngModel: Using this we can achieve two way binding
+
+<input type="text" [(ngModel)]="name" /> - Registering form field in form group & Two way binding
+
+<input type="text" [ngModel]="name" /> - Registering form field in form group & One way binding
+
+<input type="text" ngModel /> - Registering form field in form group
+
+Note: To access forms feature in components, first we need to import forms module in app module.
+
+Reactive driven forms:
+----------------------

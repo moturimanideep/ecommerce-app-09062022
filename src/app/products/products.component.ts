@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-
+import { SharedService } from '../shared.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -79,7 +79,8 @@ export class ProductsComponent implements OnInit {
     },
   ]
   constructor(
-    private router: Router
+    private router: Router,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
@@ -96,8 +97,16 @@ export class ProductsComponent implements OnInit {
       return 'blue';
     }
   }
-  addToCart() {
-    this.router.navigate(['/cart']);
+  addToCart(product: any) {
+    const cartProducts = this.sharedService.getCartProducts();
+    const isExist = cartProducts.find((prod: any) => prod.name === product.name);
+    if (isExist) {
+      window.alert('Product already exist in the cart');
+    } else {
+      cartProducts.push({...product, quantity: 1});
+      this.sharedService.setCartProducts(cartProducts);
+      this.router.navigate(['/cart']);
+    }
   }
   navToProductDetails(name: string) {
     this.router.navigate([`/product-details/${name}`], {queryParams: {id: 1, previousPage: 'products'}})
