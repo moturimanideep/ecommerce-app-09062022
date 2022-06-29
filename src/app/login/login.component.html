@@ -62,7 +62,10 @@
                         <i class="fab fa-github"></i>
                     </button>
                 </div>
-                {{loginForm.value | json}}
+                {{date | date: 'd-MM-yyyy'}}
+                {{num | number : '2.2-2'}}
+                {{formData.email | lowercase}}
+                {{num | percent : '2.2-2'}}
             </form>
         </div>
     </div>

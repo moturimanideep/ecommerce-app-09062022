@@ -8,6 +8,7 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
+  inputString: any = '';
   products: Array<any> = [
     {
       imgSrc: 'https://rukminim1.flixcart.com/image/312/312/kyeqjrk0/mobile/u/0/8/-original-imagan9qhw9nyhce.jpeg?q=70',
@@ -110,5 +111,23 @@ export class ProductsComponent implements OnInit {
   }
   navToProductDetails(name: string) {
     this.router.navigate([`/product-details/${name}`], {queryParams: {id: 1, previousPage: 'products'}})
+  }
+  addProduct() {
+    console.log('aa')
+    this.products.push(
+      {
+        imgSrc: 'https://rukminim1.flixcart.com/image/312/312/l2p23rk0/mobile/s/4/3/-original-imagdznhcbdfwfud.jpeg?q=70',
+        name: 'OPPO K10 5G (Ocean Blue, 128 GB)',
+        price: 14499,
+        specifications: ['6 GB RAM | 64 GB ROM | Expandable Upto 512 GB', '16.33 cm (6.43 inch) Full HD+ Super AMOLED Display',
+          '64MP + 8MP + 2MP + 2MP | 13MP Front Camera', '5000 mAh Lithium-Ploymer Battery', 'Mediatek Helio G95 Processor'
+        ],
+        avgRating: 4.4,
+        ratings: 41979,
+        reviews: 2873,
+        inStock: false
+      }
+    )
+    console.log(this.products);
   }
 }
