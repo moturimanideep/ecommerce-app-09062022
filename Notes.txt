@@ -473,3 +473,93 @@ Note: To access forms feature in components, first we need to import forms modul
 
 Reactive driven forms:
 ----------------------
+- For handling complex forms.
+
+Syntax:
+<form [formGroup]="formGroupName">
+  <input type="text" formControlName="formFieldName" />
+</form>
+
+{
+  section1: {
+    firstName: '',
+    lastName: '',
+  }
+}
+
+Pipes: It transforms the data from one to other.
+
+Syntax:
+
+  {{variableName | pipeName}}
+
+json - It converts the data from javascript object to json string. (JSON.stringify())
+
+currency: Converts the number to currency text
+
+  {{variableName | currency: 'CAD' : 'symbol-narrow'}}
+
+Date: Used to transform dates.
+
+  Ip - new date object
+  Op - formatted date
+
+  {{variableName | date : 'shortTime'}}
+
+  {{variableName | date : 'fullDate'}}
+
+  {{variableName | date : 'dd/MM/yyyy'}} -> d-MM-yyyy - d-MM-yy - dd/MM/yyyy - MM/dd/yyyy
+
+DecimalPipe
+This pipe is used for transformation of decimal numbers.
+
+The first argument is a format string of the form ”{minIntegerDigits}. {minFractionDigits}-{maxFractionDigits}”, like so:
+
+{{variableName | number: minIntegerDigits.minFractionDigits-maxFractionDigits}}
+
+JSON Pipe:
+It transform javascript object to json string.
+
+  {{variableName | json}}
+
+Lowercase Pipe:
+It transforms whole string into Lowercase.
+
+{{variableName | lowercase}}
+
+Uppercase Pipe:
+It transforms whole string into Uppercase.
+
+{{variableName | uppercase}}
+
+Percent pipe:
+
+{{variableName | percent : minIntegerDigits.minFractionDigits-maxFractionDigits}}
+
+Slice Pipe:
+
+This returns a slice of an array. The first argument is the start index of the slice and the second argument is the end index.
+
+{{variableName | slice: 2 : 3}}
+
+Async Pipe:
+
+This pipe accepts an observable or a promise and lets us render the output of an observable or promise without having to call then or subscribe.
+
+{{variableName | async}}
+
+Note: variable's data will be printed to the user only once the asynchronous call returns the data from source (server).
+
+Pipes:
+
+Pure Pipes: This pipes will be executed when it detects a pure change in the input value.
+primitive types: string, number, boolean and object reference - array, object and functions.
+
+-> Pure pipe optimizes application performances.
+
+Impure Pipes: Impure pipes are the pipes that execute when it detects an impure change in the input value.
+
+Eg: An impure change is when the change detection cycle detects a change to objects, such as adding an element to an existing array.
+
+-> Impure pipe may slow down your application.
+
