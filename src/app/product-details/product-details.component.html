@@ -14,7 +14,7 @@
                 <h4 [ngClass]="{'text-danger': filteredProduct.price < 10000, 
                             'text-secondary': (filteredProduct.price > 10000 && filteredProduct.price < 15000), 
                             'text-primary': filteredProduct.price > 15000}">{{filteredProduct.price}}</h4>
-                <button class="btn btn-success" *ngIf="filteredProduct.inStock === true; else noStock" (click)="addToCart()">Add to Cart</button>
+                <button class="btn btn-success" *ngIf="filteredProduct.inStock === 'true'; else noStock" (click)="addToCart()">Add to Cart</button>
                 <ng-template #noStock>
                     <h6 class="text-danger">Out of Stock</h6>
                 </ng-template>

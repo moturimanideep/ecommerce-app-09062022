@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { RestService } from '../rest.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -71,21 +71,23 @@ export class ProductDetailsComponent implements OnInit {
     },
   ];
   filteredProduct: any = {};
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router,
+    private restService: RestService) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((data: any) => {
+      this.getProductById(data.params.id);
+    });
+    this.activatedRoute.queryParamMap.subscribe((data: any) => {
       console.log(data);
-      this.productName = data.params.name;
-      this.products.forEach(product => {
-        if (product.name === this.productName) {
-          this.filteredProduct = product;
-        }
-      });
-      this.activatedRoute.queryParamMap.subscribe((data: any) => {
-        console.log(data);
-      });
-      console.log(this.filteredProduct)
+    });
+  }
+  getProductById(id: string) {
+    this.restService.getProductById(id).subscribe((res: any) => {
+      console.log(res);
+      this.filteredProduct = res['body'].data;
+    }, (err: any) => {
+
     });
   }
   getColor(name: string) {

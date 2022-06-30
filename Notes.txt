@@ -563,3 +563,46 @@ Eg: An impure change is when the change detection cycle detects a change to obje
 
 -> Impure pipe may slow down your application.
 
+Database: Database Queries (Instructions) 
+
+CRUD Operations:
+Creation - create
+Updation - update
+Retrieval - read
+Deletion - delete
+
+
+Eg: Contacts App present in mobile.
+
+Create Contact
+Update Contact
+Reading Contacts
+Delete Contact
+
+API - Application Programming Interface - Db Manipulation using Queries
+
+http: Hyper text transfer protocol: It used to transmit the data in network (Between our front end server and backend server )
+
+POST - Creation Data
+PUT - Updation Data
+Delete - Deletion Data
+Get - Reading Data
+
+http://localhost:3000
+
+Protocol://host:portNo/ApiVersion/ApiName
+
+http://localhost:3000/v1/products - Get
+
+Http Status Codes
+< 400 - Success
+>= 400 - Failure
+200 - Ok (Success)
+201 - No Content 
+
+Diffferent Http Methods Syntaxes:
+
+this.httpClient.get(url);
+this.httpClient.post(url, payload);
+this.httpClient.put(url, payload);
+this.httpClient.delete(url);
