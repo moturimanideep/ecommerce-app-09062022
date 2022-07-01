@@ -8,14 +8,15 @@
                         <th scope="col">S No</th>
                         <th scope="col">User Name</th>
                         <th scope="col">Email</th>
-                        <th scope="col">City</th>
+                        <th scope="col">Mobile</th>
+                        <th>Registered Date Time</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <ng-container *ngFor="let user of users" [ngSwitch]="user.city">
+                    <ng-container *ngFor="let user of users; let i = index" [ngSwitch]="user.city">
                         <tr *ngSwitchCase="'Bangalore'" class="text-success">
-                            <th scope="row">{{user.id}}</th>
-                            <td>{{user.name}}</td>
+                            <th scope="row">{{i + 1}}</th>
+                            <td>{{user.firstName}} {{user.lastName}}</td>
                             <td>{{user.email}}</td>
                             <td>{{user.city}}</td>
                         </tr>
@@ -38,10 +39,11 @@
                             <td>{{user.city}}</td>
                         </tr>
                         <tr *ngSwitchDefault class="text-secondary">
-                            <th scope="row">{{user.id}}</th>
-                            <td>{{user.name}}</td>
+                            <th scope="row">{{i + 1}}</th>
+                            <td>{{user.firstName}} {{user.lastName}}</td>
                             <td>{{user.email}}</td>
-                            <td>{{user.city}}</td>
+                            <td>{{user.mobile}}</td>
+                            <td>{{user.createdAt | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
                         </tr>
                         <!-- <tr *ngIf="user.city === 'Bangalore'" class="text-success">
                             <th scope="row">{{user.id}}</th>

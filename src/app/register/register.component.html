@@ -29,10 +29,10 @@
                 </div>
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form2Example1">Mobile No</label>
-                    <input type="number" name="phone" formControlName="phone" id="phone" class="form-control" />                    
+                    <input type="number" name="mobile" formControlName="mobile" id="phone" class="form-control" />                    
                 </div>
                 <div *ngIf="formInstance['phone'].touched">
-                    <p class="text-danger" *ngIf="formInstance['phone'].errors && formInstance['phone'].errors['required']">Please enter mobile</p>
+                    <p class="text-danger" *ngIf="formInstance['mobile'].errors && formInstance['mobile'].errors['required']">Please enter mobile</p>
                 </div>
                 <!-- Password input -->
                 <div class="form-outline mb-4">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
 
-                {{user | json}}
+                <p class="text-danger" *ngIf="message">{{message}}</p>
             
                 <!-- Submit button -->
                 <div class="text-center">
