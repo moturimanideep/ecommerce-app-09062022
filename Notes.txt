@@ -606,3 +606,5 @@ this.httpClient.get(url);
 this.httpClient.post(url, payload);
 this.httpClient.put(url, payload);
 this.httpClient.delete(url);
+
+Promise (JS) Observable (rxjs)

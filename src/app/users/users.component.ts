@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { RestService } from '../rest.service';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -51,9 +51,16 @@ export class UsersComponent implements OnInit {
       city: 'Delhi'
     }
   ];
-  constructor(private router: Router) { }
+  subscriber: any;
+  constructor(private restService: RestService) { }
 
   ngOnInit(): void {
+    this.subscriber = this.restService.getAllUsers().subscribe((res: any) => {
+      this.users = res.users;
+    });
+  }
+  ngOnDestroy() {
+    this.subscriber.unsubscribe();
   }
 
 }
